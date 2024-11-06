@@ -1,0 +1,257 @@
+[gd_scene load_steps=28 format=3 uid="uid://dii17ipnggygn"]
+
+[ext_resource type="Script" path="res://Level_1/Scripts/level_1.gd" id="1_06jvn"]
+[ext_resource type="PackedScene" uid="uid://y25gs356b8wv" path="res://Platforms/Scenes/plattform.tscn" id="1_lvgl6"]
+[ext_resource type="PackedScene" uid="uid://ci86n0jgu5yux" path="res://Player/Scenes/player.tscn" id="2_ljmkg"]
+[ext_resource type="PackedScene" uid="uid://bjc3wv7qmaesy" path="res://Obstacle/Scene/obstacle.tscn" id="3_a1lvn"]
+[ext_resource type="PackedScene" uid="uid://ci0vaigwp0dhl" path="res://Item/Script/item.tscn" id="4_b361t"]
+[ext_resource type="PackedScene" uid="uid://dsnnecki5b16s" path="res://Puerta/Escenas/puerta.tscn" id="5_q6xku"]
+[ext_resource type="PackedScene" uid="uid://ca7ydog57tffk" path="res://UI/Scenes/pause_menu.tscn" id="6_8de4t"]
+[ext_resource type="PackedScene" uid="uid://bckvjaca6xs20" path="res://Platforms/Scenes/plattform_2.tscn" id="7_e4ilr"]
+[ext_resource type="PackedScene" uid="uid://lycrwkyg7nqj" path="res://Obstacle/Scene/box.tscn" id="8_dbwa1"]
+[ext_resource type="PackedScene" uid="uid://etgpk8i4r7tf" path="res://Puerta/Escenas/puerta_final.tscn" id="9_e3moe"]
+[ext_resource type="Script" path="res://Level_1/Scripts/color_rect.gd" id="10_akv8r"]
+[ext_resource type="PackedScene" uid="uid://dwy5s2tgk1v0n" path="res://Lamp/Escenes/lamp.tscn" id="11_17iht"]
+[ext_resource type="PackedScene" uid="uid://ctkxdqyee4whk" path="res://Rope/Scenes/rope.tscn" id="13_p6nu2"]
+[ext_resource type="PackedScene" uid="uid://3qrowxsl4iug" path="res://NPC/Scenes/npc.tscn" id="14_0j7jk"]
+
+[sub_resource type="Gradient" id="Gradient_igvrk"]
+offsets = PackedFloat32Array(0.65493, 1)
+colors = PackedColorArray(0.939786, 0.162318, 1.92523e-07, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_ul1og"]
+gradient = SubResource("Gradient_igvrk")
+width = 2
+
+[sub_resource type="Curve" id="Curve_j7x5j"]
+_data = [Vector2(0.00653595, 1), 0.0, 0.0, 0, 0, Vector2(0.980392, 0.498037), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Animation" id="Animation_huwje"]
+resource_name = "FadeIn"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer2/ColorRect:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.1, 0.9),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CanvasLayer2/ColorRect")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"values": []
+}
+
+[sub_resource type="Animation" id="Animation_ql0aj"]
+resource_name = "FadeOut"
+length = 1.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer2/ColorRect:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.8),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CanvasLayer2/ColorRect")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(1),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"Next_level"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_jyit3"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer2/ColorRect:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_5ms5p"]
+_data = {
+"FadeIn": SubResource("Animation_huwje"),
+"FadeOut": SubResource("Animation_ql0aj"),
+"RESET": SubResource("Animation_jyit3")
+}
+
+[sub_resource type="Gradient" id="Gradient_sfc3a"]
+interpolation_mode = 2
+offsets = PackedFloat32Array(0.0035461, 0.985816)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_4584g"]
+gradient = SubResource("Gradient_sfc3a")
+fill = 1
+fill_from = Vector2(0.491453, 0.495726)
+fill_to = Vector2(0.863248, 0.123932)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ggymp"]
+size = Vector2(34, 36)
+
+[sub_resource type="Gradient" id="Gradient_1kff6"]
+offsets = PackedFloat32Array(1)
+colors = PackedColorArray(1, 1, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_3qxwn"]
+gradient = SubResource("Gradient_1kff6")
+
+[sub_resource type="Curve2D" id="Curve2D_n81fw"]
+
+[node name="Level_1" type="Node2D"]
+position = Vector2(-10, 65)
+script = ExtResource("1_06jvn")
+
+[node name="Plattform" parent="." instance=ExtResource("1_lvgl6")]
+position = Vector2(643, 610)
+
+[node name="Plattform2" parent="." instance=ExtResource("1_lvgl6")]
+position = Vector2(1166, 348)
+
+[node name="Player" parent="." instance=ExtResource("2_ljmkg")]
+position = Vector2(1482, 688)
+
+[node name="Obstacle" parent="." instance=ExtResource("3_a1lvn")]
+position = Vector2(181, 254)
+position_base = Vector2(0, 235)
+
+[node name="Item" parent="." instance=ExtResource("4_b361t")]
+position = Vector2(752, 504)
+item_name = null
+
+[node name="Item2" parent="." instance=ExtResource("4_b361t")]
+position = Vector2(952, 503)
+item_name = null
+
+[node name="Puerta" parent="." groups=["puerta_1"] instance=ExtResource("5_q6xku")]
+position = Vector2(341, 435)
+scale = Vector2(0.845703, 223)
+
+[node name="Puerta2" parent="." groups=["puerta_1"] instance=ExtResource("5_q6xku")]
+position = Vector2(938, 229)
+es_entrada = false
+
+[node name="CPUParticles2D2" type="CPUParticles2D" parent="."]
+visible = false
+position = Vector2(-453, 114)
+amount = 200
+lifetime = 2.0
+explosiveness = 0.9
+randomness = 0.5
+texture = SubResource("GradientTexture1D_ul1og")
+spread = 180.0
+gravity = Vector2(0, 150)
+initial_velocity_min = 200.0
+initial_velocity_max = 200.0
+damping_min = 30.0
+damping_max = 30.0
+scale_amount_min = 2.0
+scale_amount_max = 4.0
+scale_amount_curve = SubResource("Curve_j7x5j")
+
+[node name="CanvasLayer" parent="." instance=ExtResource("6_8de4t")]
+layer = 2
+
+[node name="Plattform3" parent="." instance=ExtResource("7_e4ilr")]
+position = Vector2(1604, 846)
+rotation = 0.520108
+
+[node name="Plattform4" parent="." instance=ExtResource("7_e4ilr")]
+position = Vector2(2525, 1174)
+
+[node name="Box" parent="." instance=ExtResource("8_dbwa1")]
+visible = false
+position = Vector2(1251, 512)
+rotation = 0.520108
+
+[node name="Puerta_final" parent="." instance=ExtResource("9_e3moe")]
+position = Vector2(2643, 1053)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_5ms5p")
+}
+
+[node name="CanvasLayer2" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer2"]
+self_modulate = Color(1, 1, 1, 0)
+offset_right = 1165.0
+offset_bottom = 661.0
+color = Color(0, 0, 0, 1)
+script = ExtResource("10_akv8r")
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+color = Color(0.156863, 0.156863, 0.156863, 1)
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+visible = false
+position = Vector2(2490, 978)
+scale = Vector2(7.625, 6.73438)
+texture = SubResource("GradientTexture2D_4584g")
+
+[node name="Lamp" parent="." instance=ExtResource("11_17iht")]
+position = Vector2(2441, 883)
+
+[node name="DirectionalLight2D" type="DirectionalLight2D" parent="."]
+position = Vector2(3780, 624)
+shadow_enabled = true
+
+[node name="Rope" parent="." node_paths=PackedStringArray("anchor") instance=ExtResource("13_p6nu2")]
+position = Vector2(1676, 374)
+anchor = NodePath("../Plattform")
+
+[node name="RigidBody2D" type="RigidBody2D" parent="."]
+position = Vector2(1820, 449)
+can_sleep = false
+constant_force = Vector2(-900, -980)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
+position = Vector2(7, 8)
+shape = SubResource("RectangleShape2D_ggymp")
+
+[node name="Sprite2D" type="Sprite2D" parent="RigidBody2D"]
+position = Vector2(6.99995, 7.99999)
+scale = Vector2(0.132812, 36)
+texture = SubResource("GradientTexture1D_3qxwn")
+
+[node name="Node2D" parent="." instance=ExtResource("14_0j7jk")]
+position = Vector2(1088, 248)
+
+[node name="Path2D" type="Path2D" parent="."]
+curve = SubResource("Curve2D_n81fw")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="Path2D"]
+
+[node name="Node2D" parent="Path2D/PathFollow2D" instance=ExtResource("14_0j7jk")]
+position = Vector2(1494, 250)

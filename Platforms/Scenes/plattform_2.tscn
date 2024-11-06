@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=3 uid="uid://bckvjaca6xs20"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_3kxjp"]
+rough = true
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_j2sw3"]
+size = Vector2(1034, 52)
+
+[sub_resource type="Gradient" id="Gradient_4evrc"]
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_yds2h"]
+gradient = SubResource("Gradient_4evrc")
+
+[node name="Plattform2" type="Node2D"]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+physics_material_override = SubResource("PhysicsMaterial_3kxjp")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("RectangleShape2D_j2sw3")
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D"]
+scale = Vector2(4.0293, 54.25)
+texture = SubResource("GradientTexture1D_yds2h")

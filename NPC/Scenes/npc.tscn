@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://3qrowxsl4iug"]
+
+[ext_resource type="Texture2D" uid="uid://ditm210t7we6f" path="res://NPC/Sprites/npc_idle.png" id="1_585wi"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jpan3"]
+size = Vector2(73, 99)
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Npc" type="CharacterBody2D" parent="."]
+position = Vector2(1.56078, -3.34508)
+rotation = 0.00847437
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Npc"]
+position = Vector2(0, 20.5)
+shape = SubResource("RectangleShape2D_jpan3")
+
+[node name="Sprite2D" type="Sprite2D" parent="Npc"]
+position = Vector2(0, 1)
+texture = ExtResource("1_585wi")

@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=3 uid="uid://bv2xc3sjpn4e1"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_0umyo"]
+radius = 2.0
+height = 18.0
+
+[sub_resource type="Gradient" id="Gradient_8n3ll"]
+offsets = PackedFloat32Array(1)
+colors = PackedColorArray(1, 1, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_757qi"]
+gradient = SubResource("Gradient_8n3ll")
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_7gge5"]
+diffuse_texture = SubResource("GradientTexture1D_757qi")
+
+[node name="Segment" type="RigidBody2D"]
+mass = 0.1
+can_sleep = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 8)
+shape = SubResource("CapsuleShape2D_0umyo")
+
+[node name="Sprite2D" type="Sprite2D" parent="CollisionShape2D"]
+scale = Vector2(0.015625, 18)
+texture = SubResource("CanvasTexture_7gge5")

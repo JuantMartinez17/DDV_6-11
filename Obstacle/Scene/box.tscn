@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://lycrwkyg7nqj"]
+
+[ext_resource type="Script" path="res://Obstacle/Script/obstacle.gd" id="1_q2q48"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_nwyyb"]
+friction = 0.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_223ml"]
+size = Vector2(50, 45)
+
+[node name="Box" type="Node2D"]
+script = ExtResource("1_q2q48")
+
+[node name="RigidBody2D" type="RigidBody2D" parent="."]
+physics_material_override = SubResource("PhysicsMaterial_nwyyb")
+can_sleep = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
+self_modulate = Color(0.992252, 0.349297, 0, 1)
+shape = SubResource("RectangleShape2D_223ml")
+
+[node name="Sprite2D" type="Sprite2D" parent="RigidBody2D"]
+modulate = Color(0.881544, 0, 0.243186, 1)
+scale = Vector2(0.212891, 50.25)

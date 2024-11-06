@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://ctkxdqyee4whk"]
+
+[ext_resource type="Script" path="res://Rope/Scripts/rope.gd" id="1_tdpeq"]
+[ext_resource type="PackedScene" uid="uid://bv2xc3sjpn4e1" path="res://Rope/Scenes/segment.tscn" id="2_dqiq7"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_lcybe"]
+radius = 3.0
+
+[node name="Rope" type="RigidBody2D"]
+process_mode = 3
+physics_interpolation_mode = 1
+can_sleep = false
+script = ExtResource("1_tdpeq")
+segment_scene = ExtResource("2_dqiq7")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_lcybe")
+
+[node name="PinJoint2D" type="PinJoint2D" parent="."]
+physics_interpolation_mode = 1
+node_b = NodePath("..")
+bias = 0.9
+disable_collision = false
+softness = 0.05
