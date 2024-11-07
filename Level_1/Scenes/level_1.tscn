@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://dii17ipnggygn"]
+[gd_scene load_steps=30 format=3 uid="uid://dii17ipnggygn"]
 
 [ext_resource type="Script" path="res://Level_1/Scripts/level_1.gd" id="1_06jvn"]
 [ext_resource type="PackedScene" uid="uid://y25gs356b8wv" path="res://Platforms/Scenes/plattform.tscn" id="1_lvgl6"]
@@ -15,6 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://ctkxdqyee4whk" path="res://Rope/Scenes/rope.tscn" id="13_p6nu2"]
 [ext_resource type="PackedScene" uid="uid://3qrowxsl4iug" path="res://NPC/Scenes/npc.tscn" id="14_0j7jk"]
 [ext_resource type="Script" path="res://NPC/Scripts/path_follow_2d.gd" id="14_idcoy"]
+[ext_resource type="Texture2D" uid="uid://cwvw7xt7g4erk" path="res://Assets/EscenaBosque.jpg" id="16_w8mue"]
 
 [sub_resource type="Gradient" id="Gradient_igvrk"]
 offsets = PackedFloat32Array(0.65493, 1)
@@ -146,6 +147,19 @@ position = Vector2(1166, 348)
 [node name="Player" parent="." instance=ExtResource("2_ljmkg")]
 position = Vector2(1482, 688)
 
+[node name="Camera2D2" type="Camera2D" parent="Player"]
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="Player/Camera2D2"]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="Player/Camera2D2/ParallaxBackground"]
+position = Vector2(-10, 65)
+motion_scale = Vector2(1.5, 1.5)
+motion_mirroring = Vector2(2700, 6000)
+
+[node name="Sprite2D" type="Sprite2D" parent="Player/Camera2D2/ParallaxBackground/ParallaxLayer"]
+position = Vector2(1289.75, 892.75)
+texture = ExtResource("16_w8mue")
+
 [node name="Obstacle" parent="." instance=ExtResource("3_a1lvn")]
 position = Vector2(181, 254)
 position_base = Vector2(0, 235)
@@ -190,7 +204,7 @@ position = Vector2(1604, 846)
 rotation = 0.520108
 
 [node name="Plattform4" parent="." instance=ExtResource("7_e4ilr")]
-position = Vector2(2525, 1174)
+position = Vector2(2827, 1194)
 
 [node name="Box" parent="." instance=ExtResource("8_dbwa1")]
 visible = false
@@ -224,7 +238,7 @@ scale = Vector2(7.625, 6.73438)
 texture = SubResource("GradientTexture2D_4584g")
 
 [node name="Lamp" parent="." instance=ExtResource("11_17iht")]
-position = Vector2(2441, 883)
+position = Vector2(2443, 908)
 
 [node name="DirectionalLight2D" type="DirectionalLight2D" parent="."]
 position = Vector2(3780, 624)
@@ -260,7 +274,3 @@ rotation = 0.0102037
 script = ExtResource("14_idcoy")
 
 [node name="Node2D" parent="Path2D/PathFollow2D" instance=ExtResource("14_0j7jk")]
-
-[node name="Parallax2D" type="Parallax2D" parent="."]
-
-[node name="ParallaxLayer" type="ParallaxLayer" parent="Parallax2D"]

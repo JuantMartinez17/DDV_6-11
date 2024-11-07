@@ -314,8 +314,6 @@ texture = ExtResource("2_xqcmf")
 hframes = 13
 vframes = 12
 
-[node name="Camera2D" type="Camera2D" parent="."]
-
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 "": SubResource("AnimationLibrary_twn7s")

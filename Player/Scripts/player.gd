@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 # Constantes para la velocidad y la gravedad
-const SPEED = 200           # Velocidad horizontal del personaje
+const SPEED = 600           # Velocidad horizontal del personaje
 const JUMP_FORCE = -1000    # Fuerza aplicada al saltar (negativo para moverse hacia arriba)
 const GRAVITY = 900         # Gravedad aplicada al personaje
 

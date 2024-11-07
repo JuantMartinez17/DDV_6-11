@@ -4,7 +4,7 @@
 rough = true
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_j2sw3"]
-size = Vector2(1034, 52)
+size = Vector2(2600, 52)
 
 [sub_resource type="Gradient" id="Gradient_4evrc"]
 
@@ -17,8 +17,10 @@ gradient = SubResource("Gradient_4evrc")
 physics_material_override = SubResource("PhysicsMaterial_3kxjp")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(783, 0)
 shape = SubResource("RectangleShape2D_j2sw3")
 
 [node name="Sprite2D" type="Sprite2D" parent="StaticBody2D"]
-scale = Vector2(4.0293, 54.25)
+position = Vector2(779.125, 0)
+scale = Vector2(10.1162, 54.25)
 texture = SubResource("GradientTexture1D_yds2h")
