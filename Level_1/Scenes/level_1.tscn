@@ -154,11 +154,16 @@ position = Vector2(1482, 688)
 [node name="ParallaxLayer" type="ParallaxLayer" parent="Player/Camera2D2/ParallaxBackground"]
 position = Vector2(-10, 65)
 motion_scale = Vector2(1.5, 1.5)
-motion_mirroring = Vector2(2700, 6000)
+motion_mirroring = Vector2(5400, 12000)
 
 [node name="Sprite2D" type="Sprite2D" parent="Player/Camera2D2/ParallaxBackground/ParallaxLayer"]
 position = Vector2(1289.75, 892.75)
 texture = ExtResource("16_w8mue")
+
+[node name="Sprite2D2" type="Sprite2D" parent="Player/Camera2D2/ParallaxBackground/ParallaxLayer"]
+position = Vector2(9983, 906)
+texture = ExtResource("16_w8mue")
+flip_h = true
 
 [node name="Obstacle" parent="." instance=ExtResource("3_a1lvn")]
 position = Vector2(181, 254)
@@ -229,6 +234,7 @@ color = Color(0, 0, 0, 1)
 script = ExtResource("10_akv8r")
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
+visible = false
 color = Color(0.156863, 0.156863, 0.156863, 1)
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
